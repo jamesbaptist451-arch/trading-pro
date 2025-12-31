@@ -95,6 +95,22 @@ setInterval(cargarPrecioBTC, 10000);
 let precioAlerta = null;
 let alertaActiva = false;
 
+// cargar alerta guardada
+const alertaGuardada = localStorage.getItem("btcAlerta");
+
+if (alertaGuardada) {
+  precioAlerta = Number(alertaGuardada);
+  alertaActiva = true;
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const status = document.getElementById("alert-status");
+    if (status) {
+      status.innerText =
+        "Alerta cargada en $" + precioAlerta.toLocaleString("en-US");
+    }
+  });
+}
+
 function activarAlerta() {
   const input = document.getElementById("alert-price").value;
 
