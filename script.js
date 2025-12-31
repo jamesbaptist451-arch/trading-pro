@@ -85,3 +85,10 @@ function activarAlerta() {
 }
 
 // Modificar esta parte dentro de cargarPrecioBTC()
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js")
+    .then(() => console.log("SW registrado"))
+    .catch(err => console.log("SW error", err));
+}
+
+
