@@ -9,6 +9,14 @@ async function cargarPrecioBTC() {
     );
     const data = await res.json();
     const precio = data.bitcoin.usd;
+    // verificar alerta
+if (alertaActiva && precio >= precioAlerta) {
+  alert("🚨 BTC alcanzó $" + precioAlerta.toLocaleString("en-US"));
+  alertaActiva = false;
+  document.getElementById("alert-status").innerText =
+    "Alerta disparada ✅";
+}
+
 
     document.getElementById("btc-price").innerText =
       "$" + precio.toLocaleString("en-US");
