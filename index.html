@@ -18,6 +18,18 @@
    <div class="status">
   📊 Gráfica BTC (USD)
   <canvas id="btcChart"></canvas>
+  <div class="status">
+  🚨 Alerta de Precio BTC
+  <input
+    type="number"
+    id="alert-price"
+    placeholder="Ej: 70000"
+    style="margin-top:10px; padding:10px; width:100%; border-radius:8px;"
+  />
+  <button class="btn" onclick="activarAlerta()">Activar alerta</button>
+  <p id="alert-status" style="margin-top:10px;"></p>
+</div>
+   
 </div>
 
 <!-- Chart.js -->
@@ -43,6 +55,7 @@
 
 </body>
 </html>
+
 
 
 
