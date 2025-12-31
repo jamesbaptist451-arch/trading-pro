@@ -1,3 +1,19 @@
+function pedirPermisoNotificacion() {
+  if (!("Notification" in window)) {
+    alert("Tu navegador no soporta notificaciones");
+    return;
+  }
+
+  Notification.requestPermission().then(permission => {
+    if (permission === "granted") {
+      alert("🔔 Notificaciones activadas");
+    } else {
+      alert("❌ Notificaciones bloqueadas");
+    }
+  });
+}
+
+
 let btcChart;
 let labels = [];
 let prices = [];
