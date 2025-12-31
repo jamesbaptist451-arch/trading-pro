@@ -27,11 +27,21 @@ async function cargarPrecioBTC() {
     const precio = data.bitcoin.usd;
     // verificar alerta
 if (alertaActiva && precio >= precioAlerta) {
-  alert("🚨 BTC alcanzó $" + precioAlerta.toLocaleString("en-US"));
+
+  if (Notification.permission === "granted") {
+    new Notification("🚨 Alerta Trading Pro", {
+      body: "BTC alcanzó $" + precioAlerta.toLocaleString("en-US"),
+      icon: "icon-192.png"
+    });
+  } else {
+    alert("🚨 BTC alcanzó $" + precioAlerta.toLocaleString("en-US"));
+  }
+
   alertaActiva = false;
   document.getElementById("alert-status").innerText =
     "Alerta disparada ✅";
 }
+
 
 
     document.getElementById("btc-price").innerText =
