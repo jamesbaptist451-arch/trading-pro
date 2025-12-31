@@ -58,3 +58,22 @@ async function cargarPrecioBTC() {
 
 cargarPrecioBTC();
 setInterval(cargarPrecioBTC, 10000);
+let precioAlerta = null;
+let alertaActiva = false;
+
+function activarAlerta() {
+  const input = document.getElementById("alert-price").value;
+
+  if (!input || input <= 0) {
+    alert("Ingresa un precio válido");
+    return;
+  }
+
+  precioAlerta = Number(input);
+  alertaActiva = true;
+
+  document.getElementById("alert-status").innerText =
+    "Alerta activada en $" + precioAlerta.toLocaleString("en-US");
+}
+
+// Modificar esta parte dentro de cargarPrecioBTC()
