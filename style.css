@@ -84,4 +84,10 @@ canvas {
   margin-top: 15px;
 }
 
+#tradingview_btc {
+  margin-top: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 
