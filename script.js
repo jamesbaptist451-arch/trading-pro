@@ -38,6 +38,8 @@ if (alertaActiva && precio >= precioAlerta) {
   }
 
   alertaActiva = false;
+  localStorage.removeItem("btcAlerta");
+
   document.getElementById("alert-status").innerText =
     "Alerta disparada ✅";
 }
@@ -119,8 +121,12 @@ function activarAlerta() {
     return;
   }
 
-  precioAlerta = Number(input);
-  alertaActiva = true;
+precioAlerta = Number(input);
+alertaActiva = true;
+
+// guardar alerta
+localStorage.setItem("btcAlerta", precioAlerta);
+
 
   document.getElementById("alert-status").innerText =
     "Alerta activada en $" + precioAlerta.toLocaleString("en-US");
